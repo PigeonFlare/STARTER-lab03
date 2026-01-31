@@ -1,6 +1,6 @@
 // intbst.cpp
 // Implements class IntBST
-// Serena Zhang, 1/21/26
+// Henry Li, 01/31/2026
 
 #include "intbst.h"
 
@@ -31,10 +31,9 @@ void IntBST::clear(Node *n) {
 bool IntBST::insert(int value) {
     if (!root){
         root = new Node(value);
-        return false;
+        return true;
     }
-    insert(value, root);
-    return true;
+    return insert(value, root);
 }
 
 // recursive helper for insert (assumes n is never 0)
@@ -46,21 +45,22 @@ bool IntBST::insert(int value, Node *n) {
         if (!n->left){
             n->left = new Node(value);
             n->left->parent = n;
+            return true;
         }
         else{
-            insert(value, n->left);
+            return insert(value, n->left);
         }
     }
-    if (value > n->info){
+    else { // value > n->info
         if (!n->right){
             n->right = new Node(value);
             n->right->parent = n;
+            return true;
         }
         else{
-            insert(value, n->right);
+            return insert(value, n->right);
         }
     }
-    return true;
 }
 
 // print tree data pre-order

@@ -56,12 +56,28 @@ int main(){
 	    one.getPredecessor(80) << endl;
     cout << "bst one: successor of 20 is: " <<
 	    one.getSuccessor(20) << endl;
+    cout << "bst one: predecessor of 20 is: " <<
+	    one.getPredecessor(20) << endl;
+    cout << "bst one: successor of 80 is: " <<
+	    one.getSuccessor(80) << endl;
+    cout << "bst one: successor of 100 is: " <<
+	    one.getSuccessor(100) << endl;
         
     one.remove(60);
     one.remove(30);
+    one.remove(50); // Remove root with two children
 
     cout << "bst one contains 30? " << (one.contains(30) ? "Y" : "N") << endl;
     cout << "bst one contains 60? " << (one.contains(60) ? "Y" : "N") << endl;
+    cout << "bst one contains 50? " << (one.contains(50) ? "Y" : "N") << endl;
+    cout << "bst one: ";
+    one.printInOrder();
+    cout << endl;
+
+    IntBST empty;
+    cout << "empty sum: " << empty.sum() << endl;
+    cout << "empty count: " << empty.count() << endl;
+    cout << "empty contains 10? " << (empty.contains(10) ? "Y" : "N") << endl;
     
     return 0;
 }
